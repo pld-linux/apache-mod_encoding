@@ -1,0 +1,13 @@
+--- mod_encoding.c.orig	Mon Jan 27 00:45:55 2003
++++ mod_encoding.c	Mon Jan 27 00:48:37 2003
+@@ -17,8 +17,9 @@
+ #include <http_protocol.h>
+ #include <http_request.h>
+ /* #include <ap_compat.h> */
++#include <apr_strings.h>
+ 
+-#include <iconv.h>
++#include "iconv.h.replace"
+ 
+ /**
+  * Core part of the module.
