@@ -1,6 +1,7 @@
 %define		mod_name	encoding
 %define 	apxs		/usr/sbin/apxs
 Summary:	Apache module: convert character encoding of request URLs
+Summary(pl):	Modu³ Apache'a przekszta³caj±cy kodowanie znaków ¿±danych URL-i
 Name:		apache-mod_%{mod_name}
 %define		_source_version	20021209
 Version:	20040616
@@ -28,11 +29,14 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 %define		_pkglogdir	%(%{apxs} -q PREFIX 2>/dev/null)/logs
 
 %description
-This module improves non-ascii filename interoperability of
-apache (and mod_dav).
+This module improves non-ascii filename interoperability of Apache
+(and mod_dav).
+
+%description -l pl
+Ten modu³ poprawia wspó³pracê Apache'a (i mod_dav) z nazwami plików
+zawieraj±cymi znaki spoza ASCII.
 
 %prep
-#%setup -q -T -c -n mod_%{mod_name}
 %setup -q -n mod_%{mod_name}-%{_source_version}
 install %{SOURCE1} mod_%{mod_name}.c
 #%patch0 -p0
@@ -53,7 +57,6 @@ install -d $RPM_BUILD_ROOT{%{_pkglibdir},%{_sysconfdir}/httpd.conf,/etc/logrotat
 install mod_%{mod_name}.so $RPM_BUILD_ROOT%{_pkglibdir}
 install %{SOURCE1} $RPM_BUILD_ROOT%{_sysconfdir}/httpd.conf/90_mod_%{mod_name}.conf
 install %{SOURCE2} $RPM_BUILD_ROOT/etc/logrotate.d/%{name}
-
 
 %clean
 rm -rf $RPM_BUILD_ROOT
