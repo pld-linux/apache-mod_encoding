@@ -1,7 +1,7 @@
 %define		mod_name	encoding
 %define 	apxs		/usr/sbin/apxs
 Summary:	Apache module: convert character encoding of request URLs
-Summary(pl):	Modu³ Apache'a przekszta³caj±cy kodowanie znaków ¿±danych URL-i
+Summary(pl.UTF-8):   ModuÅ‚ Apache'a przeksztaÅ‚cajÄ…cy kodowanie znakÃ³w Å¼Ä…danych URL-i
 Name:		apache-mod_%{mod_name}
 %define		_source_version	20021209
 Version:	20040616
@@ -32,9 +32,9 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 This module improves non-ascii filename interoperability of Apache
 (and mod_dav).
 
-%description -l pl
-Ten modu³ poprawia wspó³pracê Apache'a (i mod_dav) z nazwami plików
-zawieraj±cymi znaki spoza ASCII.
+%description -l pl.UTF-8
+Ten moduÅ‚ poprawia wspÃ³Å‚pracÄ™ Apache'a (i mod_dav) z nazwami plikÃ³w
+zawierajÄ…cymi znaki spoza ASCII.
 
 %prep
 %setup -q -n mod_%{mod_name}-%{_source_version}
