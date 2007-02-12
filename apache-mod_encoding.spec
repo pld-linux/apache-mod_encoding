@@ -1,7 +1,7 @@
 %define		mod_name	encoding
 %define 	apxs		/usr/sbin/apxs
 Summary:	Apache module: convert character encoding of request URLs
-Summary(pl.UTF-8):   Moduł Apache'a przekształcający kodowanie znaków żądanych URL-i
+Summary(pl.UTF-8):	Moduł Apache'a przekształcający kodowanie znaków żądanych URL-i
 Name:		apache-mod_%{mod_name}
 %define		_source_version	20021209
 Version:	20040616
