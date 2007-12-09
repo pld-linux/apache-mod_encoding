@@ -16,7 +16,7 @@ Source1:	http://webdav.todo.gr.jp/download/experimental/mod_%{mod_name}.c.apache
 #Source2:	%{name}.logrotate
 Patch0:		%{name}-iconv_h.patch
 URL:		http://webdav.todo.gr.jp/
-BuildRequires:	apache-apxs >= 2.0
+BuildRequires:	%{apxs}
 BuildRequires:	apache-devel >= 2.0.40
 BuildRequires:	autoconf
 BuildRequires:	automake
