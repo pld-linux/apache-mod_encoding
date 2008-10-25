@@ -7,7 +7,7 @@ Name:		apache-mod_%{mod_name}
 Version:	20040616
 Release:	0.1
 License:	Apache or BSD-like?
-Group:		Networking/Daemons
+Group:		Networking/Daemons/HTTP
 Source0:	http://webdav.todo.gr.jp/download/mod_%{mod_name}-%{_source_version}.tar.gz
 # Source0-md5:	489cbd9c7429baf45c4234c51cb2af23
 Source1:	http://webdav.todo.gr.jp/download/experimental/mod_%{mod_name}.c.apache2.%{version}
