@@ -25,7 +25,7 @@ Requires:	apache(modules-api) = %apache_modules_api
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %define		_pkglibdir	%(%{apxs} -q LIBEXECDIR 2>/dev/null)
-%define		_sysconfdir	%(%{apxs} -q SYSCONFDIR 2>/dev/null)
+%define		_sysconfdir	%(%{apxs} -q SYSCONFDIR 2>/dev/null)/conf.d
 %define		_pkglogdir	%(%{apxs} -q PREFIX 2>/dev/null)/logs
 
 %description
@@ -52,10 +52,10 @@ install %{SOURCE1} mod_%{mod_name}.c
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT{%{_pkglibdir},%{_sysconfdir}/httpd.conf,/etc/logrotate.d,%{_pkglogdir}}
+install -d $RPM_BUILD_ROOT{%{_pkglibdir},%{_sysconfdir},/etc/logrotate.d,%{_pkglogdir}}
 
 install mod_%{mod_name}.so $RPM_BUILD_ROOT%{_pkglibdir}
-install %{SOURCE1} $RPM_BUILD_ROOT%{_sysconfdir}/httpd.conf/90_mod_%{mod_name}.conf
+install %{SOURCE1} $RPM_BUILD_ROOT%{_sysconfdir}/90_mod_%{mod_name}.conf
 install %{SOURCE2} $RPM_BUILD_ROOT/etc/logrotate.d/%{name}
 
 %clean
@@ -72,7 +72,7 @@ fi
 %files
 %defattr(644,root,root,755)
 %doc AUTHORS ChangeLog README*
-#%attr(640,root,root) %config(noreplace) %verify(not md5 mtime size) %{_sysconfdir}/httpd.conf/*_mod_%{mod_name}.conf
+#%attr(640,root,root) %config(noreplace) %verify(not md5 mtime size) %{_sysconfdir}/*_mod_%{mod_name}.conf
 #%attr(755,root,root) %{_pkglibdir}/*.so
 #%attr(640,root,root) %config(noreplace) %verify(not md5 mtime size) /etc/logrotate.d/*
 #%attr(640,root,root) %ghost %{_pkglogdir}/*
